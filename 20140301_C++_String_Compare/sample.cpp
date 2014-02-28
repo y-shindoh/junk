@@ -21,7 +21,6 @@ main()
 	data.reserve(k);
 	std::srand((unsigned)std::time(0));
 	for (size_t j(0); j < k; ++j) {
-		if (j % 1000u == 0) std::printf("+");
 		data.push_back((char)std::rand());
 	}
 
