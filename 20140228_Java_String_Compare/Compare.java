@@ -15,12 +15,12 @@ class Compare
 	public static void
 	main(String arguments[]) {
 		// prepare
-		ArrayList<Integer> data = new ArrayList<Integer>();
+		ArrayList<Character> data = new ArrayList<Character>();
 		Random random = new Random(System.currentTimeMillis());
 		int k = m;
 		if (k < n) k = n;
 		for (int j = 0; j < k; ++j) {
-			data.add(random.nextInt(k));
+			data.add((char)random.nextInt(k));
 		}
 		// O(n^3)
 		long x = 0;
