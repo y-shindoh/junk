@@ -24,8 +24,8 @@ def fill_symbols(input_char, index, neighbor, output_symbol)
             if flag then
                 output_symbol[c] = s
                 flag = fill_symbols(input_char, index + 1, neighbor, output_symbol)
-                output_symbol.delete(c) unless flag
-                return flag
+                return true if flag
+                output_symbol.delete(c)
             end
         }
         return false
