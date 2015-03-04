@@ -16,19 +16,11 @@ class MyDeque
     end
 
     def dequeue
-        if empty? then
-            return nil
-        else
-            return dequeue_subfunction
-        end
-    end
-
-    def dequeue_subfunction
         last = @stack.pop
         if empty? then
             return last
         else
-            first = dequeue_subfunction
+            first = dequeue
             @stack << last
             return first
         end
