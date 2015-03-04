@@ -14,31 +14,23 @@ using namespace std;
  * @return	連続した1の総数
  */
 size_t
-count_buffer(const void* buffer,
+count_buffer(const unsigned char* buffer,
 			 const size_t length)
 {
 	size_t count(0);
-	bool flag_1(false);
-	bool flag_2(false);
-	unsigned char c;
+	size_t check(0);
 
 	for (size_t i(0); i < length; ++i) {
-		c = (static_cast<const unsigned char*>(buffer))[i];
-		cerr << "[" << i << "]";
+		cerr << "[" << i << "]\t";
 		for (size_t j(0); j < 8u; ++j) {
-			if (c & (1u << (7u - j))) {
-				if (flag_1) {
-					if (!flag_2) count++;
-					flag_2 = true;
-				}
-				else {
-					flag_1 = true;
-				}
-				cerr << " +";
+			if (buffer[i] & (static_cast<unsigned char>(1u) << (7u - j))) {
+				if (check == 1u) count++;
+				++check;
+				cerr << '1';
 			}
 			else {
-				flag_1 = flag_2 = false;
-				cerr << " -";
+				check = 0;
+				cerr << '0';
 			}
 		}
 		cerr << endl;
@@ -50,9 +42,9 @@ count_buffer(const void* buffer,
 int
 main()
 {
-	char buffer[] = {0x19, 0x83, 0x03};
+	unsigned char buffer[] = {0xD9, 0x83, 0x03};
 
-	cout << count_buffer((void *)&buffer, sizeof(buffer)) << endl;
+	cout << count_buffer(buffer, sizeof(buffer)) << endl;
 
 	return 0;
 }
