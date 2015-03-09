@@ -35,7 +35,7 @@ class MyStack
     end
 end
 
-deque = MyStack::new
+stack = MyStack::new
 
 STDIN.each { |value|
     value.strip!
@@ -43,13 +43,13 @@ STDIN.each { |value|
 
     case value
     when 'pop' then
-        value = deque.pop
+        value = stack.pop
         printf("pop:\t%s\n", value)
     else
         printf("push:\t%s\n", value)
-        deque.push(value)
+        stack.push(value)
     end
 
     print("print:\t")
-    deque.print
+    stack.print
 }
