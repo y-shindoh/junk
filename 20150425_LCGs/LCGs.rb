@@ -9,10 +9,11 @@ require 'optparse'
 class LCGs
     def initialize(a, b, m, x0)
         @data = [ x0 ]
+        y = x0 % m
         m.times { |i|
-            v = (a * @data.last + b) % m
-            break if x0 == v
-            @data << v
+            x = (a * @data.last + b) % m
+            break if y == x
+            @data << x
         }
         @n = @data.length
     end
@@ -53,7 +54,7 @@ option.parse!(ARGV)
 
 object = LCGs::new(a, b, m, x0)
 
-if m <= x0 then
+if a <= 0 or b < 0 or m <= a or m <= b then
     warn("Found invalid arguments!")
     exit(false)
 end
