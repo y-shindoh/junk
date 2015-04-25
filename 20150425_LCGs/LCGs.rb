@@ -23,6 +23,8 @@ class LCGs
     end
 end
 
+############################################################
+
 option = OptionParser::new
 
 a = 3
