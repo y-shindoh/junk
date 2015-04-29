@@ -7,3 +7,5 @@ junk
 * 20150303_Google_hiring_test: Google社の採用問題の回答コード。
 * 20150304_Google_hiring_test: Google社の採用問題と類似の問題の回答コード。
 * 20150309_Google_hiring_test: Google社の採用問題と類似の問題の回答コード。
+* 20150425_LCGs: 線形合同法のサンプル・コード。
+* 20150429_C++_bit_operations: ビット演算処理のサンプル・コード。
