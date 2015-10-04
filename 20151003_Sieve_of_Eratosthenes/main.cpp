@@ -82,9 +82,13 @@ main()
 			if (f) r.push_back(i);
 		}
 
+		size_t x = r.size();
+
+		r.clear();
+
 		e = std::clock();
 
-		std::printf("=> %lu (%G sec.)\n", r.size(), (double)(e - s) / CLOCKS_PER_SEC);
+		std::printf("=> %lu (%G sec.)\n", x, (double)(e - s) / CLOCKS_PER_SEC);
 	}
 
 	return 0;
