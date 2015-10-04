@@ -7,7 +7,7 @@ EXECUTE	:= sample.exe
 NUMBER	:= 20000000
 
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Weffc++ -std=c++11 -O2 -D"N=(size_t)$(NUMBER)"
+CXXFLAGS	:= -Wall -Weffc++ -O2 -D"N=(size_t)$(NUMBER)"
 
 check: $(EXECUTE)
 	# check
