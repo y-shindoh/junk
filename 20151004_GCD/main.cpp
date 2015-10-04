@@ -33,7 +33,7 @@ gcd_l(TYPE a,
 {
 	if (a < b) std::swap<TYPE>(a, b);
 
-	while (0 < b) {
+	while ((TYPE)0 < b) {
 		a %= b;
 		std::swap<TYPE>(a, b);
 	}
