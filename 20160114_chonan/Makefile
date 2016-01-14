@@ -2,23 +2,27 @@
 # Author: Yasutaka SHINDOH / 新堂 安孝
 
 SOURCE	:= $(wildcard *.cpp)
-EXECUTE	:= sample.exe
+EXECUTE	:= $(patsubst %.cpp,%.exe,$(SOURCE))
 
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Weffc++ -O2
+CXXFLAGS	:= -Wall -Weffc++ -O2 -std=c++11
+
+%.exe : %.cpp $(wildcard *.hpp)
+	# create: $@
+	$(CXX) $(CXXFLAGS) $< -o $@
 
 check: $(EXECUTE)
-	# check
-	./$(EXECUTE)
+	@for e in $^ ; do \
+		if [ -e $${e} ]; then \
+			printf "# execute: $${e}\n"; \
+			./$${e}; \
+		fi \
+	done
 
-$(EXECUTE): $(SOURCE)
-	# create: $(@F)
-	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(SOURCE) -o $@
+all: $(EXECUTE)
 
 clean:
-	# clean
 	rm -f $(EXECUTE)
 	find . -name '*~' -print0 | xargs -0 rm -f
 
-.PHONY: check clean
+.PHONY: check all clean
