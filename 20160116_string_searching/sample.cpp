@@ -15,6 +15,7 @@
  * 力まかせ探索
  * @param[in]	buffer	探索対象
  * @param[in]	pattern	パターン文字列
+ * @return	パターン文字列の @a buffer 内での位置
  */
 size_t
 bf_search(const char* buffer,
