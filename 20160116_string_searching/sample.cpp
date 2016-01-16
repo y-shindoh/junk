@@ -135,7 +135,6 @@ public:
 
 			for (TYPE i(0); i + n - 1 < (TYPE)l; ++i) {
 				if (std::memcmp(buffer + i, pattern_.c_str(), n) == 0) return i;
-				if ((TYPE)l <= i + n) break;
 				if (pattern_[n-1] == buffer[i+n]) continue;
 				i += table_[(size_t)buffer[i+n]];	// スキップする文字数を調整
 			}
