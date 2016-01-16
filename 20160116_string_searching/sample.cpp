@@ -13,14 +13,16 @@
 
 /**
  * 力まかせ探索
+ * @param[in]	buffer	探索対象
+ * @param[in]	pattern	パターン文字列
  */
 size_t
-bf_search(const char* input,
+bf_search(const char* buffer,
 		  const char* pattern)
 {
-	for (size_t i(0); input[i]; ++i) {
+	for (size_t i(0); buffer[i]; ++i) {
 		size_t j(0);
-		while (input[i+j] && input[i+j] == pattern[j]) ++j;
+		while (buffer[i+j] && buffer[i+j] == pattern[j]) ++j;
 		if (pattern[j] == '\0') return i;
 	}
 
