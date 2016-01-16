@@ -54,7 +54,7 @@ public:
 			assert(0 < pattern_.length());
 
 			TYPE n = (TYPE)pattern_.length();
-			std::fill(table_, table_ + N, n);	///< 先頭以前はワイルドカード
+			std::fill(table_, table_ + N, n);	// 先頭以前はワイルドカード
 
 			for (TYPE i(0); i + 1 < n; ++i) {
 				table_[(size_t)pattern[i]] = n - i - 1;
@@ -121,6 +121,7 @@ public:
 	 * @param[in]	buffer	探索対象
 	 * @param[in]	l	文字列 @a buffer の長さ
 	 * @return	パターン文字列の @a buffer 内での位置
+	 * @note	テーブル @a table_ を共用しなければ、条件文が1つ減る。
 	 */
 	size_t
 	search_sunday(const char* buffer,
