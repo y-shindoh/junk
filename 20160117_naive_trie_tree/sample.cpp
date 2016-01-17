@@ -23,9 +23,11 @@ public:
 	/**
 	 * コンストラクタ
 	 * @param[in]	key	キーの1要素
+	 * @param[in,out]	sibling	弟のノード
 	 */
-	Node(const TYPE& key)
-		: key_(key), sibling_(0), child_(0)
+	Node(const TYPE& key,
+		Node<TYPE>* sibling = 0)
+		: key_(key), sibling_(sibling), child_(0)
 		{
 			;
 		}
@@ -46,10 +48,8 @@ add(Node<TYPE>* node,
 
 	if (node) {
 		if (*key < node->key_) {
-			Node<TYPE>* n = new Node<TYPE>(*key);
-			n->sibling_ = node;
-			if (*key) n->child_ = add<TYPE>(0, key+1);
-			node = n;
+			node = new Node<TYPE>(*key, node);
+			if (*key) node->child_ = add<TYPE>(0, key+1);
 		}
 		else if (node->key_ < *key) {
 			node->sibling_ = add<TYPE>(node->sibling_, key);
