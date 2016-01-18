@@ -103,8 +103,8 @@ void
 clear(Node<TYPE>* node)
 {
 	if (node) {
-		clear<TYPE>(node->child_);
 		clear<TYPE>(node->sibling_);
+		clear<TYPE>(node->child_);
 		delete node;
 	}
 }
