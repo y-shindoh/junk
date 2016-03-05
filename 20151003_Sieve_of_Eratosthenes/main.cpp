@@ -39,10 +39,7 @@ main()
 		// 奇数の合成数
 		for (size_t i(3); i * i <= N; i += 2) {
 			if (!f[i]) continue;
-			for (size_t j(i+2); j <= N; j += 2) {
-				if (0 < j % i) continue;
-				f[j] = false;
-			}
+			for (size_t j(i+i); j <= N; j += i) f[j] = false;
 		}
 
 		size_t x(0);
